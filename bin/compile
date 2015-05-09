@@ -32,7 +32,6 @@ export CPATH="$BUILD_DIR/vendor/include:$CPATH"
 export LIBRARY_PATH="$BUILD_DIR/vendor/lib:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="$BUILD_DIR/vendor/lib:$LD_LIBRARY_PATH"
 
-cd ..
 git clone git://github.com/trusterd/trusterd.git
 
 echo "
