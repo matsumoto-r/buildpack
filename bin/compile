@@ -27,12 +27,6 @@ export PATH="$BUILD_DIR/vendor/bin:$PATH"
 ruby -v
 gem -v
 
-git clone git://github.com/jemalloc/jemalloc.git
-cd jemalloc
-./autogen.sh
-./configure --enable-autogen --prefix="$BUILD_DIR/vendor"
-make && make install
-
 export CPPPATH="$BUILD_DIR/vendor/include:$CPPPATH"
 export CPATH="$BUILD_DIR/vendor/include:$CPATH"
 export LIBRARY_PATH="$BUILD_DIR/vendor/lib:$LIBRARY_PATH"
@@ -60,9 +54,6 @@ MRuby::Build.new do |conf|
   conf.gem '../mrblib/trusterd-ext'
   conf.gembox 'full-core'
 
-  conf.linker do |linker|
-    linker.flags_after_libraries << '-ljemalloc'
-  end
 end" > "trusterd/build_config.rb"
 
 cd trusterd
